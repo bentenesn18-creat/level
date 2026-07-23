@@ -1,0 +1,116 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Tahoma;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    background:#8b0000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+/* الخلفية المتحركة */
+
+.background{
+    position:absolute;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+.background span{
+    position:absolute;
+    color:gold;
+    font-size:35px;
+    animation:float 10s linear infinite;
+    opacity:0.3;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(100vh) rotate(0deg);
+    }
+
+    100%{
+        transform:translateY(-120vh) rotate(360deg);
+    }
+}
+
+/* اللوجو */
+
+.center-box{
+    z-index:10;
+    text-align:center;
+}
+
+.logo-btn{
+    width:180px;
+    height:180px;
+    border:4px solid gold;
+    background:rgba(0,0,0,0.4);
+    color:gold;
+    font-size:28px;
+    font-weight:bold;
+    cursor:pointer;
+    border-radius:20px;
+    transition:0.5s;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 0 30px gold;
+    animation:pulse 2s infinite;
+}
+
+.logo-btn:hover{
+    transform:scale(1.1) rotate(5deg);
+    box-shadow:0 0 60px gold;
+}
+
+.logo-btn::before{
+    content:'';
+    position:absolute;
+    width:300%;
+    height:300%;
+    background:rgba(255,215,0,0.2);
+    top:-100%;
+    left:-100%;
+    transform:rotate(45deg);
+    transition:1s;
+}
+
+.logo-btn:hover::before{
+    top:0;
+    left:0;
+}
+
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.05);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+.hover-text{
+    margin-top:20px;
+    color:white;
+    font-size:28px;
+    opacity:0;
+    transition:0.5s;
+}
+
+.center-box:hover .hover-text{
+    opacity:1;
+    letter-spacing:3px;
+}
